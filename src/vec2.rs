@@ -1,33 +1,31 @@
 use std::ops;
 
 #[derive(Debug)]
-pub struct Vec2 {
-    pub x: f64,
-    pub y: f64,
-}
+pub struct Vec2(pub f64, pub f64);
 
 
 impl Vec2 {
     pub fn create(x: f64, y: f64) -> Vec2 {
-        Vec2 { x, y }
+        Vec2(x, y)
     }
 
     pub fn clone(&self) -> Self {
-        Vec2 { x: self.x, y: self.y }
+        let Vec2(x, y) = *self;
+        Vec2(x, y)
     }
     fn sum(&self, other: &Vec2) -> Vec2 {
-        Vec2::create(self.x + other.x, self.y + other.y)
+        Vec2::create(self.0 + other.0, self.1 + other.1)
     }
     fn sub_func(&self, other: &Vec2) -> Vec2 {
-        Vec2::create(self.x - other.x, self.y - other.y)
+        Vec2::create(self.0 - other.0, self.1 - other.1)
     }
 
     fn el_product(&self, other: &Vec2) -> Vec2 {
-        Vec2::create(self.x * other.x, self.y * other.y)
+        Vec2::create(self.0 * other.0, self.1 * other.1)
     }
 
     fn scalar_product(&self, other: &Vec2) -> f64 {
-        self.x * other.x + self.y * other.y
+        self.0 * other.0 + self.1 * other.1
     }
 
     pub fn magnitude(&self) -> f64 {

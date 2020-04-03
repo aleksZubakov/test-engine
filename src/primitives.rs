@@ -1,5 +1,7 @@
 use super::Vec2;
 
+pub type Point2D = Vec2;
+
 pub struct Line2D {
     pub start_point: Vec2,
     pub end_point: Vec2,
@@ -53,6 +55,10 @@ impl Rectangle2D {
 
     pub fn max_point(&self) -> Vec2 {
         &self.start_point + &self.size
+    }
+
+    pub fn min_max_points(&self) -> (Vec2, Vec2) {
+        (self.max_point(), self.max_point())
     }
 }
 

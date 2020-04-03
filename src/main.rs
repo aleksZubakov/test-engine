@@ -1,5 +1,6 @@
 mod vec2;
 mod primitives;
+mod intersect;
 
 use vec2::Vec2;
 
