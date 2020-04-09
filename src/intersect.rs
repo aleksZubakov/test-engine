@@ -1,7 +1,7 @@
 use std::prelude::v1::Vec;
 
 use crate::primitives::{Circle, Line2D, Point2D, Rectangle2D};
-use crate::vec2::Vec2;
+use crate::math::vec2::Vec2;
 
 const EPS: f64 = 0.0001_f64;
 
@@ -28,6 +28,7 @@ pub fn is_point_in_circle(point: &Vec2, circle: &Circle) -> bool {
 pub fn is_point_in_rectangle(point: &Vec2, rectangle: &Rectangle2D) -> bool {
     let (Vec2(min_x, min_y), Vec2(max_x, max_y)) = rectangle.min_max_points();
 
+    let Vec2(x, y) = *point;
     // TODO: normal comparison for Vec2
-    point.x <= max_x && point.y <= max_y && point.x >= min_x && point.y >= min_y
+    x <= max_x && y <= max_y && x >= min_x && y >= min_y
 }

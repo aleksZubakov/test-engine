@@ -1,8 +1,10 @@
-mod vec2;
 mod primitives;
 mod intersect;
+mod math;
 
-use vec2::Vec2;
+use math::vec2::Vec2;
+use std::fs::File;
+use std::io;
 
 fn main() {
     let t1 = Vec2::create(1_f64, 2_f64);
